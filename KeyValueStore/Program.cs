@@ -24,4 +24,28 @@ namespace KeyValueStore
             Console.WriteLine($"{(int)d["Cats"]}, {(int)d["Dogs"]}");
         }
     }
+    public abstract class Dam : iam
+    {
+        public abstract void Run();
+
+        public virtual void Walk()
+        {
+            Run();
+        }
+    }
+    interface iam
+    {
+        void Walk();
+    }
+    public class ham : Dam
+    {
+        public override void Run()
+        {
+            Console.WriteLine("");
+        }
+        public override void Walk()
+        {
+            base.Walk();
+        }
+    }
 }

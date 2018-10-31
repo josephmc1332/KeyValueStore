@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace KeyValueStore
 {
-    struct KeyValues
+    struct KeyValues<T>
     {
         public readonly string key;
-        public readonly object value;
+        public readonly T value;
 
 
-        public KeyValues(string initialKey, object initialValue)
+        public KeyValues(string initialKey, T initialValue)
         {
             key = initialKey;
             value = initialValue;
@@ -21,7 +21,8 @@ namespace KeyValueStore
 
     public class MyDictionary
     {
-        private KeyValues[] keyValues = new KeyValues[2];
+       
+        KeyValues<int>[] keyValues = new KeyValues<int>[2];
         int count = 0;
 
 
@@ -44,11 +45,11 @@ namespace KeyValueStore
                 {
                     if (keyValues[i].key == keySearch)
                     {
-                        keyValues[i] = new KeyValues();
+                        keyValues[i] = new KeyValues<int>();
                     }
                     if (keyValues[i].key != keySearch)
                     {
-                        keyValues[count] = new KeyValues(keySearch, value);
+                        keyValues[count] = new KeyValues<int>(keySearch, (int)value);
                       
                     }
                   
